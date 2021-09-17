@@ -1,7 +1,9 @@
-<div *ngIf="initialState; else anotherState">
-  <select
-    (change)="onSelect(firstSelectValue.value, 'first')"
-    [value]="firstSelectValue.value"
+<div class="container" *ngIf="initialState; else anotherState">
+
+  <div class="caseInContent">
+    <select
+    (change)="onSelect(firstSelectValue.value, 'userDataAboutCurrency')"
+    [value]="objFirstCurrencyValue.name"
     #firstSelectValue
   >
     <option value="euro">Euro</option>
@@ -9,57 +11,80 @@
     <option value="ru">Ru</option>
     <option value="hryvnia">Hryvnia</option>
   </select>
-  <input
-    type="number"
-    [placeholder]="firstSelectValue.value"
-    (input)="onExchange(firstCurrency.value, 'userDataAboutCurrency')"
-    [value]="objFirstCurrencyValue.value"
-    #firstCurrency
-    >
-  <select (change)="onSelect(secondSelectValue.value, 'second')" #secondSelectValue>
-    <option value="usd">Usd</option>
-    <option value="euro">Euro</option>
-    <option value="hryvnia">Hryvnia</option>
-    <option value="ru">Ru</option>
-  </select>
-  <input
-    type="number"
-    [placeholder]="secondSelectValue.value"
-    (input)="onExchange(secondCurrency.value, 'second')"
-    [disabled]="isDisabled"
-    [value]="objSecondCurrencyValue.value"
-    #secondCurrency
-    >
-</div>
-<ng-template #anotherState>
-  <div>
-    <select (change)="onSelect(secondSelectValue.value, 'second')" #secondSelectValue>
-      <option value="usd">Usd</option>
-      <option value="euro">Euro</option>
-      <option value="hryvnia">Hryvnia</option>
-      <option value="ru">Ru</option>
-    </select>
     <input
-      type="number"
-      [placeholder]="secondSelectValue.value"
-      (input)="onExchange(secondCurrency.value, 'second')"
-      [value]="objSecondCurrencyValue.value"
-      #secondCurrency
-    >
-    <select (change)="onSelect(firstSelectValue.value, 'userDataAboutCurrency')" #firstSelectValue>
-      <option value="euro">Euro</option>
-      <option value="usd">Usd</option>
-      <option value="ru">Ru</option>
-      <option value="hryvnia">Hryvnia</option>
-    </select>
-    <input
+      class="inputCurrency"
       type="number"
       [placeholder]="firstSelectValue.value"
-      (input)="onExchange(firstCurrency.value, 'first')"
+      (input)="onExchange(firstCurrency.value, 'userDataAboutCurrency')"
       [value]="objFirstCurrencyValue.value"
-      [disabled]="isDisabled"
       #firstCurrency
     >
   </div>
+  <div class="caseInContent">
+    <select
+      (change)="onSelect(secondSelectValue.value, 'second')"
+      [value]="objSecondCurrencyValue.name"
+      #secondSelectValue
+    >
+      <option value="usd">Usd</option>
+      <option value="euro">Euro</option>
+      <option value="hryvnia">Hryvnia</option>
+      <option value="ru">Ru</option>
+    </select>
+    <input
+      class="inputCurrency"
+      type="number"
+      [placeholder]="secondSelectValue.value"
+      (input)="onExchange(secondCurrency.value, 'second')"
+      [disabled]="isDisabled"
+      [value]="objSecondCurrencyValue.value"
+      #secondCurrency
+    >
+  </div>
+</div>
 
+<ng-template #anotherState>
+  <div class="container">
+    <div class="caseInContent">
+      <select
+        (change)="onSelect(secondSelectValue.value, 'second')"
+        [value]="objSecondCurrencyValue.name"
+        #secondSelectValue
+      >
+        <option value="usd">Usd</option>
+        <option value="euro">Euro</option>
+        <option value="hryvnia">Hryvnia</option>
+        <option value="ru">Ru</option>
+      </select>
+      <input
+        class="inputCurrency"
+        type="number"
+        [placeholder]="secondSelectValue.value"
+        (input)="onExchange(secondCurrency.value, 'second')"
+        [value]="objSecondCurrencyValue.value"
+        #secondCurrency
+      >
+    </div>
+    <div class="caseInContent">
+      <select
+        (change)="onSelect(firstSelectValue.value, 'userDataAboutCurrency')"
+        [value]="objFirstCurrencyValue.name"
+        #firstSelectValue
+      >
+        <option value="euro">Euro</option>
+        <option value="usd">Usd</option>
+        <option value="ru">Ru</option>
+        <option value="hryvnia">Hryvnia</option>
+      </select>
+      <input
+        class="inputCurrency"
+        type="number"
+        [placeholder]="firstSelectValue.value"
+        (input)="onExchange(firstCurrency.value, 'first')"
+        [value]="objFirstCurrencyValue.value"
+        [disabled]="isDisabled"
+        #firstCurrency
+      >
+    </div>
+  </div>
 </ng-template>

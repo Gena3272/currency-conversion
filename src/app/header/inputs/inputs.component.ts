@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HeaderService } from "../services/header.service";
 
 @Component({
@@ -6,33 +6,29 @@ import { HeaderService } from "../services/header.service";
   templateUrl: './inputs.component.html',
   styleUrls: ['./inputs.component.scss']
 })
-export class InputsComponent implements OnChanges{
+export class InputsComponent {
   @Input() initialState = true;
   @Output() swapSelect = new EventEmitter<void>();
+
   objFirstCurrencyValue = {name: 'euro', value: ''};
   objSecondCurrencyValue = {name: 'usd', value: ''};
   isDisabled: boolean = true;
   USERDATA = 'userDataAboutCurrency';
+
   constructor(private headerService: HeaderService) {
   }
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.objFirstCurrencyValue, '1');
-    console.log(this.objSecondCurrencyValue, '2');
-  }
 
-  onSelect(value: any, type: string) {
-    if(type === this.USERDATA){
-      if(this.objSecondCurrencyValue.name === value) {
-        this.swapSelect.emit();
-        return
-      }
+  onSelect(value: string, type: string) {
+    if(type === this.USERDATA) {
       this.objFirstCurrencyValue.name = value;
-    } else {
-      if(this.objSecondCurrencyValue.name === value) {
+      if (this.objSecondCurrencyValue.name === value) {
         this.swapSelect.emit();
-        return
       }
-      this.objSecondCurrencyValue.name = value;
+      return;
+    }
+    this.objSecondCurrencyValue.name = value;
+    if (this.objFirstCurrencyValue.name === value) {
+      this.swapSelect.emit();
     }
   }
 
