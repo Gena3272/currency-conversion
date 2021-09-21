@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 
 // Constants
 import { EURO, HRYVNIA, RU, USD } from "../constants/currency-conversion.constants";
+
+// Models
 import { CurrencyConversion } from "../models/currency-conversion.models";
 
 @Injectable({

@@ -6,6 +6,8 @@ import { EURO, USD } from "../constants/currency-conversion.constants";
 
 // Service
 import { HeaderService } from "../services/header.service";
+
+// Models
 import { CurrencyConversion } from "../models/currency-conversion.models";
 
 const USERDATA = 'userDataAboutCurrency';
