@@ -1,21 +1,24 @@
+// Angular
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+// Component
 import { HeaderComponent } from "./header.component";
-import { InputsComponent } from './inputs/inputs.component';
+import { CurrencyConversionComponent } from './currencyConversion/currencyConversion.component';
 
-
+// Module
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    InputsComponent
+    CurrencyConversionComponent,
   ],
   exports: [
-    InputsComponent,
-    HeaderComponent
+    CurrencyConversionComponent,
+    HeaderComponent,
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+  ],
 })
-export class HeaderModule { }
+export class HeaderModule {}

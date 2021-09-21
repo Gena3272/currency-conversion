@@ -1,49 +1,86 @@
+// Angular
 import { Injectable } from '@angular/core';
+
+// Constants
+import { EURO, HRYVNIA, RU, USD } from "../constants/currency-conversion.constants";
+import { CurrencyConversion } from "../models/currency-conversion.models";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeaderService {
-
-  getCurrentValue(firstValue: any, secondValue: any): any {
-    if(firstValue.name === 'usd' && secondValue.name === 'ru') {
-      return secondValue.value = firstValue.value * 72.40
-    }
-    if(firstValue.name === 'usd' && secondValue.name === 'euro') {
-      return secondValue.value = firstValue.value * 0.85
-    }
-    if(firstValue.name === 'usd' && secondValue.name === 'hryvnia') {
-      return secondValue.value = firstValue.value * 26.1
+  getUsdData(userData: CurrencyConversion, resultData: CurrencyConversion): number | undefined {
+    if(userData.name === USD && resultData.name === RU) {
+      resultData.value = userData.value * 72.40;
+      return resultData.value;
     }
 
-    if(firstValue.name === 'euro' && secondValue.name === 'usd') {
-      return secondValue.value = firstValue.value * 1.18
-    }
-    if(firstValue.name === 'euro' && secondValue.name === 'ru') {
-      return secondValue.value = firstValue.value * 85.26
-    }
-    if(firstValue.name === 'euro' && secondValue.name === 'hryvnia') {
-      return secondValue.value = firstValue.value * 31.42
+    if(userData.name === USD && resultData.name === EURO) {
+      resultData.value = userData.value * 0.85;
+      return resultData.value;
     }
 
-    if(firstValue.name === 'hryvnia' && secondValue.name === 'usd') {
-      return secondValue.value = firstValue.value * 0.037
+    if(userData.name === USD && resultData.name === HRYVNIA) {
+      resultData.value = userData.value * 26.1;
+      return resultData.value;
     }
-    if(firstValue.name === 'hryvnia' && secondValue.name === 'euro') {
-      return secondValue.value = firstValue.value * 0.032
-    }
-    if(firstValue.name === 'hryvnia' && secondValue.name === 'ru') {
-      return secondValue.value = firstValue.value * 2.71
+    return
+  }
+  getEuroData(userData: CurrencyConversion, resultData: CurrencyConversion): number | undefined {
+    if(userData.name === EURO && resultData.name === USD) {
+      resultData.value = userData.value * 1.18;
+      return resultData.value;
     }
 
-    if(firstValue.name === 'ru' && secondValue.name === 'usd') {
-      return secondValue.value = firstValue.value * 0.014
+    if(userData.name === EURO && resultData.name === RU) {
+      resultData.value = userData.value * 85.26;
+      return resultData.value;
     }
-    if(firstValue.name === 'ru' && secondValue.name === 'euro') {
-      return secondValue.value = firstValue.value * 0.012
+
+    if(userData.name === EURO && resultData.name === HRYVNIA) {
+      resultData.value = userData.value * 31.42;
+      return resultData.value;
     }
-    if(firstValue.name === 'ru' && secondValue.name === 'hryvnia') {
-      return secondValue.value = firstValue.value * 0.37
+    return
+  }
+  getHryvniaData(userData: CurrencyConversion, resultData: CurrencyConversion): number | undefined {
+    if(userData.name === HRYVNIA && resultData.name === USD) {
+      resultData.value = userData.value * 0.037;
+      return resultData.value;
     }
+
+    if(userData.name === HRYVNIA && resultData.name === EURO) {
+      resultData.value = userData.value * 0.032;
+      return resultData.value;
+    }
+
+    if(userData.name === HRYVNIA && resultData.name === RU) {
+      resultData.value = userData.value * 2.71;
+      return resultData.value
+    }
+    return
+  }
+  getRuData(userData: CurrencyConversion, resultData: CurrencyConversion): number | undefined {
+    if(userData.name === RU && resultData.name === USD) {
+      resultData.value = userData.value * 0.014;
+      return resultData.value;
+    }
+
+    if(userData.name === RU && resultData.name === EURO) {
+      resultData.value = userData.value * 0.012;
+      return resultData.value;
+    }
+
+    if(userData.name === RU && resultData.name === HRYVNIA) {
+      resultData.value = userData.value * 0.37;
+      return resultData.value;
+    }
+    return
+  }
+  getCurrentValue(userData: CurrencyConversion, resultData: CurrencyConversion): void {
+    this.getEuroData(userData, resultData);
+    this.getUsdData(userData, resultData);
+    this.getHryvniaData(userData, resultData);
+    this.getRuData(userData, resultData);
   }
 }

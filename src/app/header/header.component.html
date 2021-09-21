@@ -1,9 +1,10 @@
-<app-inputs [initialState]="initialState" (swapSelect)="swapInputs()"></app-inputs>
+<app-inputs
+  [defaultCurrencyPosition]="defaultCurrencyPosition"
+  (swapActiveCurrencyConversion)="swapActiveCurrencyInput()">
+</app-inputs>
 <div class="container">
   <button
-    class="btn"
-    (click)="swapInputs()"
+    class="swap-btn"
+    (click)="swapActiveCurrencyInput()"
   >Swap</button>
 </div>
-
-

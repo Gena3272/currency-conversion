@@ -1,9 +1,12 @@
+// Angular
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+// Component
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+
+// Module
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { HeaderModule } from "./header/header.module";
 
 @NgModule({
@@ -13,9 +16,9 @@ import { HeaderModule } from "./header/header.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HeaderModule
+    HeaderModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

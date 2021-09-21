@@ -1,0 +1,82 @@
+<div *ngIf="defaultCurrencyPosition; else modifiedElement" class="container">
+
+  <div class="case-in-content">
+    <select
+    #activeSelectValue
+    [value]="activeConvertibleCurrency.name"
+    (change)="onSelect(activeSelectValue.value, 'userDataAboutCurrency')">
+    <option value="euro">Euro</option>
+    <option value="usd">Usd</option>
+    <option value="ru">Ru</option>
+    <option value="hryvnia">Hryvnia</option>
+  </select>
+    <input
+      class="input-currency"
+      type="number"
+      #activeCurrency
+      [placeholder]="activeSelectValue.value"
+      [value]="activeConvertibleCurrency.value"
+      (input)="onExchange(activeCurrency.value, 'userDataAboutCurrency')"
+    >
+  </div>
+  <div class="case-in-content">
+    <select
+      #resultSelectValue
+      [value]="convertibleCurrencyResult.name"
+      (change)="onSelect(resultSelectValue.value, 'result')">
+      <option value="usd">Usd</option>
+      <option value="euro">Euro</option>
+      <option value="hryvnia">Hryvnia</option>
+      <option value="ru">Ru</option>
+    </select>
+    <input
+      class="input-currency"
+      type="number"
+      #resultCurrency
+      [disabled]="isDisabled"
+      [placeholder]="resultSelectValue.value"
+      [value]="convertibleCurrencyResult.value"
+      (input)="onExchange(resultCurrency.value, 'result')">
+  </div>
+</div>
+<ng-template #modifiedElement>
+  <div class="container">
+    <div class="case-in-content">
+      <select
+        #resultSelectValue
+        (change)="onSelect(resultSelectValue.value, 'result')"
+        [value]="convertibleCurrencyResult.name">
+        <option value="usd">Usd</option>
+        <option value="euro">Euro</option>
+        <option value="hryvnia">Hryvnia</option>
+        <option value="ru">Ru</option>
+      </select>
+      <input
+        class="input-currency"
+        type="number"
+        #resultCurrency
+        [placeholder]="resultSelectValue.value"
+        [value]="convertibleCurrencyResult.value"
+        (input)="onExchange(resultCurrency.value, 'result')">
+    </div>
+    <div class="case-in-content">
+      <select
+        #activeSelectValue
+        [value]="activeConvertibleCurrency.name"
+        (change)="onSelect(activeSelectValue.value, 'userDataAboutCurrency')">
+        <option value="euro">Euro</option>
+        <option value="usd">Usd</option>
+        <option value="ru">Ru</option>
+        <option value="hryvnia">Hryvnia</option>
+      </select>
+      <input
+        class="input-currency"
+        type="number"
+        #activeCurrency
+        [placeholder]="activeSelectValue.value"
+        [value]="activeConvertibleCurrency.value"
+        [disabled]="isDisabled"
+        (input)="onExchange(activeCurrency.value, 'userDataAboutCurrency')">
+    </div>
+  </div>
+</ng-template>
