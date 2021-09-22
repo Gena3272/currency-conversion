@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.case-in-content {
+  margin-top: 20px;
+}
+
+.input-currency {
+  width: 200px;
+  height: 30px;
+  outline: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
