@@ -1,10 +1,9 @@
 <div *ngIf="defaultCurrencyPosition; else modifiedElement" class="container">
-
   <div class="case-in-content">
     <select
     #activeSelectValue
     [value]="activeConvertibleCurrency.name"
-    (change)="onSelect(activeSelectValue.value, 'userDataAboutCurrency')">
+    (change)="onSelect(activeSelectValue.value, CURRENCY.CUSTOM)">
     <option value="euro">Euro</option>
     <option value="usd">Usd</option>
     <option value="ru">Ru</option>
@@ -16,14 +15,13 @@
       #activeCurrency
       [placeholder]="activeSelectValue.value"
       [value]="activeConvertibleCurrency.value"
-      (input)="onExchange(activeCurrency.value, 'userDataAboutCurrency')"
-    >
+      (input)="onExchange(+activeCurrency.value, CURRENCY.CUSTOM)">
   </div>
   <div class="case-in-content">
     <select
       #resultSelectValue
       [value]="convertibleCurrencyResult.name"
-      (change)="onSelect(resultSelectValue.value, 'result')">
+      (change)="onSelect(resultSelectValue.value, CURRENCY.RESULT)">
       <option value="usd">Usd</option>
       <option value="euro">Euro</option>
       <option value="hryvnia">Hryvnia</option>
@@ -36,7 +34,7 @@
       [disabled]="isDisabled"
       [placeholder]="resultSelectValue.value"
       [value]="convertibleCurrencyResult.value"
-      (input)="onExchange(resultCurrency.value, 'result')">
+      (input)="onExchange(+resultCurrency.value, CURRENCY.RESULT)">
   </div>
 </div>
 <ng-template #modifiedElement>
@@ -44,7 +42,7 @@
     <div class="case-in-content">
       <select
         #resultSelectValue
-        (change)="onSelect(resultSelectValue.value, 'result')"
+        (change)="onSelect(resultSelectValue.value, CURRENCY.RESULT)"
         [value]="convertibleCurrencyResult.name">
         <option value="usd">Usd</option>
         <option value="euro">Euro</option>
@@ -57,13 +55,13 @@
         #resultCurrency
         [placeholder]="resultSelectValue.value"
         [value]="convertibleCurrencyResult.value"
-        (input)="onExchange(resultCurrency.value, 'result')">
+        (input)="onExchange(+resultCurrency.value, CURRENCY.RESULT)">
     </div>
     <div class="case-in-content">
       <select
         #activeSelectValue
         [value]="activeConvertibleCurrency.name"
-        (change)="onSelect(activeSelectValue.value, 'userDataAboutCurrency')">
+        (change)="onSelect(activeSelectValue.value, CURRENCY.CUSTOM)">
         <option value="euro">Euro</option>
         <option value="usd">Usd</option>
         <option value="ru">Ru</option>
@@ -76,7 +74,7 @@
         [placeholder]="activeSelectValue.value"
         [value]="activeConvertibleCurrency.value"
         [disabled]="isDisabled"
-        (input)="onExchange(activeCurrency.value, 'userDataAboutCurrency')">
+        (input)="onExchange(+activeCurrency.value, CURRENCY.CUSTOM)">
     </div>
   </div>
 </ng-template>

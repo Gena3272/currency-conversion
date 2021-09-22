@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class HeaderComponent{
   defaultCurrencyPosition = true;
 
-  swapActiveCurrencyInput() {
+  swapActiveCurrencyInput(): void {
     this.defaultCurrencyPosition = !this.defaultCurrencyPosition;
   }
 }
