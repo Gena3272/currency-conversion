@@ -1,38 +1,55 @@
 <div class="container">
   <h1>User Phone</h1>
   <form class="user-phone-data">
+
     <input
       type="text"
       placeholder="Phone"
       [formControl]="userPhone">
+
     <div *ngIf="userPhone.invalid && userPhone.touched">
       <p>Некорректный номер телефона</p>
     </div>
+
   </form>
+
   <h2>User Login and Password</h2>
-  <form [formGroup]="formLogAndPassUser">
+
+  <form [formGroup]="formAccountRegistration">
+
     <label>Login</label>
     <input type="text" formControlName="userLogin">
+
     <label>Password</label>
     <input type="password" formControlName="userPassword">
+
     <button
     class="submit-form"
-    [disabled]="formLogAndPassUser.invalid"
-    >Submit</button>
+    [disabled]="formAccountRegistration.invalid">
+    Submit</button>
+
   </form>
+
   <h2>User FirstName SecondName and Patronymic</h2>
+
   <form
-    class="user-date-form"
-    [formGroup]="userDate">
+    class="user-data-form"
+    [formGroup]="userData">
+
     <label>First name</label>
     <input type="text" formControlName="firstName">
+
     <label>Second name</label>
     <input type="text" formControlName="secondName">
+
     <label>Patronymic</label>
     <input type="text" formControlName="patronymicName">
+
     <button
     class="submit-form"
-    [disabled]="userDate.invalid"
-    >Submit</button>
+    [disabled]="userData.invalid">
+    Submit</button>
+
   </form>
+
 </div>
