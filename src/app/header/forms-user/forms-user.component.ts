@@ -16,6 +16,7 @@ export class FormsUserComponent {
   userPhone: FormControl = new FormControl('', [
     Validators.pattern('[0-9]{10}'),
   ]);
+
   formAccountRegistration: FormGroup = new FormGroup({
     userLogin: new FormControl('', [
       Validators.required,
@@ -28,6 +29,7 @@ export class FormsUserComponent {
       Validators.minLength(7),
     ]),
   });
+
   userData: FormGroup = new FormGroup({
     firstName: new FormControl('', this.userDataValidators),
     secondName: new FormControl('', this.userDataValidators),
