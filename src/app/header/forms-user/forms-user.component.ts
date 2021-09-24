@@ -18,13 +18,13 @@ export class FormsUserComponent {
     Validators.pattern('[0-9]{10}'),
   ]);
 
-  formAccountRegistration: FormGroup = new FormGroup({
-    userLogin: new FormControl('', [
+  userVerification: FormGroup = new FormGroup({
+    login: new FormControl('', [
       Validators.required,
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{5,}$'),
       Validators.minLength(5),
     ]),
-    userPassword: new FormControl('', [
+    password: new FormControl('', [
       Validators.required,
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{7,}$'),
       Validators.minLength(7),

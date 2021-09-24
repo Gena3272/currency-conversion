@@ -20,17 +20,17 @@
   <section>
 
     <h2>User Login and Password</h2>
-    <form [formGroup]="formAccountRegistration">
+    <form [formGroup]="userVerification">
 
       <label>Login</label>
-      <input type="text" formControlName="userLogin">
+      <input type="text" formControlName="login">
 
       <label>Password</label>
-      <input type="password" formControlName="userPassword">
+      <input type="password" formControlName="password">
 
       <button
         class="submit-form"
-        [disabled]="formAccountRegistration.invalid">
+        [disabled]="userVerification.invalid">
 
         Submit
       </button>
