@@ -9,9 +9,10 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 })
 export class FormsUserComponent {
   private userDataValidators = [
-    Validators.required,
-    Validators.pattern('^([А-ЯЁ][а-я]*((\\s[а-яё])?[а-яё]*)*)$'),
-    Validators.minLength(2)];
+  Validators.required,
+  Validators.pattern('^([А-ЯЁ][а-я]*((\\s[а-яё])?[а-яё]*)*)$'),
+  Validators.minLength(2)
+  ];
 
   userPhone: FormControl = new FormControl('', [
     Validators.pattern('[0-9]{10}'),

@@ -12,9 +12,7 @@
     </div>
 
   </form>
-
   <h2>User Login and Password</h2>
-
   <form [formGroup]="formAccountRegistration">
 
     <label>Login</label>
@@ -24,14 +22,13 @@
     <input type="password" formControlName="userPassword">
 
     <button
-    class="submit-form"
-    [disabled]="formAccountRegistration.invalid">
-    Submit</button>
+      class="submit-form"
+      [disabled]="formAccountRegistration.invalid">
 
+      Submit
+    </button>
   </form>
-
   <h2>User FirstName SecondName and Patronymic</h2>
-
   <form
     class="user-data-form"
     [formGroup]="userData">
@@ -46,10 +43,10 @@
     <input type="text" formControlName="patronymicName">
 
     <button
-    class="submit-form"
-    [disabled]="userData.invalid">
-    Submit</button>
+      class="submit-form"
+      [disabled]="userData.invalid">
 
+      Submit
+    </button>
   </form>
-
 </div>
