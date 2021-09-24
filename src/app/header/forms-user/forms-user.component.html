@@ -1,55 +1,66 @@
 <div class="container">
 
-  <h1>User Phone</h1>
-  <form class="user-phone-data">
-    <input
-      type="text"
-      placeholder="Phone"
-      [formControl]="userPhone">
+  <section>
 
-    <div *ngIf="userPhone.invalid && userPhone.touched">
-      <p>Некорректный номер телефона</p>
-    </div>
+    <h1>User Phone</h1>
+    <form class="user-phone-data">
+      <input
+        type="text"
+        placeholder="Phone"
+        [formControl]="userPhone">
 
-  </form>
+      <div *ngIf="userPhone.invalid && userPhone.touched">
+        <p>Некорректный номер телефона</p>
+      </div>
 
-  <h2>User Login and Password</h2>
-  <form [formGroup]="formAccountRegistration">
+    </form>
 
-    <label>Login</label>
-    <input type="text" formControlName="userLogin">
+  </section>
 
-    <label>Password</label>
-    <input type="password" formControlName="userPassword">
+  <section>
 
-    <button
-      class="submit-form"
-      [disabled]="formAccountRegistration.invalid">
+    <h2>User Login and Password</h2>
+    <form [formGroup]="formAccountRegistration">
 
-      Submit
-    </button>
-  </form>
+      <label>Login</label>
+      <input type="text" formControlName="userLogin">
 
-  <h2>User FirstName SecondName and Patronymic</h2>
-  <form
-    class="user-data-form"
-    [formGroup]="userData">
+      <label>Password</label>
+      <input type="password" formControlName="userPassword">
 
-    <label>First name</label>
-    <input type="text" formControlName="firstName">
+      <button
+        class="submit-form"
+        [disabled]="formAccountRegistration.invalid">
 
-    <label>Second name</label>
-    <input type="text" formControlName="secondName">
+        Submit
+      </button>
 
-    <label>Patronymic</label>
-    <input type="text" formControlName="patronymicName">
+    </form>
 
-    <button
-      class="submit-form"
-      [disabled]="userData.invalid">
+  </section>
 
-      Submit
-    </button>
+  <section>
+    <h2>User FirstName SecondName and Patronymic</h2>
+    <form
+      class="user-data-form"
+      [formGroup]="userData">
 
-  </form>
+      <label>First name</label>
+      <input type="text" formControlName="firstName">
+
+      <label>Second name</label>
+      <input type="text" formControlName="secondName">
+
+      <label>Patronymic</label>
+      <input type="text" formControlName="patronymicName">
+
+      <button
+        class="submit-form"
+        [disabled]="userData.invalid">
+
+        Submit
+      </button>
+
+    </form>
+  </section>
 </div>

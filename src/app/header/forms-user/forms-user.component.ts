@@ -32,8 +32,9 @@ export class FormsUserComponent {
   });
 
   userData: FormGroup = new FormGroup({
-    firstName: new FormControl('', this.userDataValidators),
-    secondName: new FormControl('', this.userDataValidators),
-    patronymicName: new FormControl('', this.userDataValidators),
-  }, );
+      firstName: new FormControl('', this.userDataValidators),
+      secondName: new FormControl('', this.userDataValidators),
+      patronymicName: new FormControl('', this.userDataValidators),
+    },
+  );
 }
