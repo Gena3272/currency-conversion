@@ -1,0 +1,66 @@
+<div class="container">
+
+  <section>
+
+    <h1>User Phone</h1>
+    <form class="user-phone-data">
+      <input
+        type="text"
+        placeholder="Phone"
+        [formControl]="userPhone">
+
+      <div *ngIf="userPhone.invalid && userPhone.touched">
+        <p>Некорректный номер телефона</p>
+      </div>
+
+    </form>
+
+  </section>
+
+  <section>
+
+    <h2>User Login and Password</h2>
+    <form [formGroup]="userVerification">
+
+      <label>Login</label>
+      <input type="text" formControlName="login">
+
+      <label>Password</label>
+      <input type="password" formControlName="password">
+
+      <button
+        class="submit-form"
+        [disabled]="userVerification.invalid">
+
+        Submit
+      </button>
+
+    </form>
+
+  </section>
+
+  <section>
+    <h2>User FirstName SecondName and Patronymic</h2>
+    <form
+      class="user-data-form"
+      [formGroup]="userData">
+
+      <label>First name</label>
+      <input type="text" formControlName="firstName">
+
+      <label>Second name</label>
+      <input type="text" formControlName="secondName">
+
+      <label>Patronymic</label>
+      <input type="text" formControlName="patronymicName">
+
+      <button
+        class="submit-form"
+        [disabled]="userData.invalid">
+
+        Submit
+      </button>
+
+    </form>
+  </section>
+</div>
