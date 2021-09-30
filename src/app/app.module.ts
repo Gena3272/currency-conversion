@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 // Module
 import { HeaderModule } from "./header/header.module";
-import { MainModule } from "./main/main.module";
+import { CustomerActionsDataModule } from "./customer-actions-data/ccustomer-actions-data.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { MainModule } from "./main/main.module";
     BrowserModule,
     HeaderModule,
     FormsModule,
-    MainModule,
+    CustomerActionsDataModule
   ],
   bootstrap: [AppComponent],
 })

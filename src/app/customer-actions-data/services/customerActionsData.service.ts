@@ -5,15 +5,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 
 // Models
-import { CustomerData } from "../models/CustomerActionsData.models";
+import { CustomerActionsData } from "../models/CustomerActionsData.models";
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerActionsDataService {
-  customerActionsDataList$ = new BehaviorSubject<CustomerData[]>([]);
+  customerActionsDataList$ = new BehaviorSubject<CustomerActionsData[]>([]);
 
-  addCustomerData(index: number): void {
+  addCustomerActionsData(index: number): void {
     this.customerActionsDataList$.next([...this.customerActionsDataList$.value, {value: index}]);
   }
 }

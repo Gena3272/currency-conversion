@@ -6,18 +6,18 @@ import { BehaviorSubject, interval, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
 // Service
-import { CustomerActionsDataService } from "../services/customerActionsData.service";
+import { CustomerActionsDataService } from "./services/customerActionsData.service";
 
 // Models
-import { CustomerData } from "../models/CustomerActionsData.models";
+import { CustomerActionsData } from "./models/CustomerActionsData.models";
 
 @Component({
-  selector: 'app-custom-data',
-  templateUrl: './customerActionsData.component.html',
-  styleUrls: ['./customerActionsData.component.scss'],
+  selector: 'app-customer-actions-data',
+  templateUrl: './customer-actions-data.component.html',
+  styleUrls: ['./customer-actions-data.component.scss'],
 })
-export class CustomerActionsDataComponent implements OnInit, OnDestroy{
-  customerActionsDataList$: BehaviorSubject<CustomerData[]>
+export class CustomerActionsDataComponent implements OnInit, OnDestroy {
+  customerActionsDataList$: BehaviorSubject<CustomerActionsData[]>;
   showResult = false;
 
   private interval$ = interval(100);
@@ -36,12 +36,12 @@ export class CustomerActionsDataComponent implements OnInit, OnDestroy{
     this.customerActionsDataList$ = this.customerActionsDataService.customerActionsDataList$;
   }
 
-  addCustomerData(): void {
-    this.customerActionsDataService.addCustomerData(this.index);
+  addCustomerActionsData(): void {
+    this.customerActionsDataService.addCustomerActionsData(this.index);
   }
 
   showResults(): void {
-    this.showResult = !this.showResult
+    this.showResult = !this.showResult;
   }
 
   ngOnDestroy(): void {
