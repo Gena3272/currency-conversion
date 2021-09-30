@@ -1,0 +1,29 @@
+<div class="container">
+  <button
+    class="interval-data-btn"
+    (click)="addCustomerActionsData()">
+
+    Add
+  </button>
+
+  <button
+    class="interval-data-btn"
+    (click)="showResults()">
+
+    Add
+  </button>
+
+  <ng-container *ngIf="showResult">
+
+    <ul class="list-data">
+      <li
+        class="list-data-item"
+        *ngFor="let customerActionsData of customerActionsDataList$ | async">
+
+        <span>{{ customerActionsData.value }}</span>
+
+      </li>
+    </ul>
+
+  </ng-container>
+</div>
