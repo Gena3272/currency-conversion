@@ -1,0 +1,25 @@
+<div class="container">
+  <button
+    class="add-array"
+    (click)="onClick()">
+
+    Add
+  </button>
+
+  <button
+    class="add-array"
+    (click)="displayingArrayValues()">
+
+    Add
+  </button>
+
+  <ul class="list-data">
+    <li
+      class="list-data-item"
+      *ngFor="let value of indexList">
+
+      <span>{{value.value}}</span>
+
+    </li>
+  </ul>
+</div>
