@@ -1,12 +1,13 @@
 // Angular
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from '@angular/platform-browser';
+
 // Component
 import { AppComponent } from './app.component';
+
 // Module
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
 import { HeaderModule } from "./header/header.module";
-import { FormsModule } from "@angular/forms";
 import { MainModule } from "./main/main.module";
 
 @NgModule({
@@ -15,7 +16,6 @@ import { MainModule } from "./main/main.module";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HeaderModule,
     FormsModule,
     MainModule,

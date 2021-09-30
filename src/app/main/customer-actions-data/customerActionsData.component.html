@@ -1,13 +1,13 @@
 <div class="container">
   <button
-    class="btn-interval-data"
-    (click)="AddIndexObjInList()">
+    class="interval-btn-data"
+    (click)="addCustomerData()">
 
     Add
   </button>
 
   <button
-    class="btn-interval-data"
+    class="interval-btn-data"
     (click)="showResults()">
 
     Add
@@ -18,9 +18,9 @@
     <ul class="list-data">
       <li
         class="list-data-item"
-        *ngFor="let indexObj of indexObjList$ | async">
+        *ngFor="let customerDataIndex of customerActionsDataList$ | async">
 
-        <span>{{indexObj.value}}</span>
+        <span>{{customerDataIndex.value}}</span>
 
       </li>
     </ul>
