@@ -1,0 +1,29 @@
+<div class="container">
+  <button
+    class="btn-interval-data"
+    (click)="AddIndexObjInList()">
+
+    Add
+  </button>
+
+  <button
+    class="btn-interval-data"
+    (click)="showResults()">
+
+    Add
+  </button>
+
+  <ng-container *ngIf="showResult">
+
+    <ul class="list-data">
+      <li
+        class="list-data-item"
+        *ngFor="let indexObj of indexObjList$ | async">
+
+        <span>{{indexObj.value}}</span>
+
+      </li>
+    </ul>
+
+  </ng-container>
+</div>

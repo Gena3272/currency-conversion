@@ -2,22 +2,24 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 // RxJS
-import { interval, Subject } from "rxjs";
+import { BehaviorSubject, interval, Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
 // Service
 import { StorageService } from "../services/storage.service";
+import { indexList } from "../models/main.models";
 
 @Component({
   selector: 'app-adding-data',
-  templateUrl: './addingData.component.html',
-  styleUrls: ['./addingData.component.scss'],
+  templateUrl: './clickIntervalData.component.html',
+  styleUrls: ['./clickIntervalData.component.scss'],
 })
-export class AddingDataComponent implements OnInit, OnDestroy{
+export class ClickIntervalDataComponent implements OnInit, OnDestroy{
+  indexObjList$: BehaviorSubject<indexList[]>
+  showResult = false;
   private interval$ = interval(100);
   private unSubscribe$ = new Subject<void>();
   private index: number;
-  indexList: any;
 
   constructor(private storageService: StorageService) {}
 
@@ -28,15 +30,15 @@ export class AddingDataComponent implements OnInit, OnDestroy{
       )
       .subscribe(v => this.index = v);
 
-    this.storageService.indexList$.subscribe();
+    this.indexObjList$ = this.storageService.indexList$;
   }
 
-  onClick(): void {
-    this.storageService.addValue(this.index);
+  AddIndexObjInList(): void {
+    this.storageService.addIndexObj(this.index);
   }
 
-  displayingArrayValues(): void {
-    this.indexList = this.storageService.indexList$.value;
+  showResults(): void {
+    this.showResult = !this.showResult
   }
 
   ngOnDestroy(): void {

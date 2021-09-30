@@ -5,8 +5,6 @@ import { NgModule } from '@angular/core';
 import { HeaderComponent } from "./header.component";
 import { CurrencyConversionComponent } from './currencyConversion/currencyConversion.component';
 import { FormsUserComponent } from './forms-user/forms-user.component';
-import { AddingDataComponent } from './addingData/addingData.component';
-
 // Module
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from "@angular/forms";
@@ -16,7 +14,6 @@ import { ReactiveFormsModule } from "@angular/forms";
     HeaderComponent,
     CurrencyConversionComponent,
     FormsUserComponent,
-    AddingDataComponent,
   ],
   exports: [
     CurrencyConversionComponent,
