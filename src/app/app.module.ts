@@ -18,7 +18,7 @@ import { CustomerActionsDataModule } from "./customer-actions-data/ccustomer-act
     BrowserModule,
     HeaderModule,
     FormsModule,
-    CustomerActionsDataModule
+    CustomerActionsDataModule,
   ],
   bootstrap: [AppComponent],
 })
