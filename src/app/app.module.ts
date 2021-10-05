@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 // Module
 import { HeaderModule } from "./header/header.module";
 import { CustomerActionsDataModule } from "./customer-actions-data/ccustomer-actions-data.module";
+import { RxJsModule } from "./rx-js/rx-js.module";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CustomerActionsDataModule } from "./customer-actions-data/ccustomer-act
     HeaderModule,
     FormsModule,
     CustomerActionsDataModule,
+    RxJsModule,
   ],
   bootstrap: [AppComponent],
 })
