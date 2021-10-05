@@ -1,3 +1,2 @@
-export const A = 'a';
 export const B = 'b';
-export const C = 'c';
+export const EXAMPLERESULT = [1, 2, 3, 4, 8];
