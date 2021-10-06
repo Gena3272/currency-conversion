@@ -1,20 +1,14 @@
 <div class="container">
   <form>
-
     <input
       type="text"
       placeholder="Search Game"
-      [formControl]="searchUserInListGames">
+      [formControl]="searchGames">
     <ul>
+      <li *ngFor="let resultGameSearch of resultGamesSearch$ | async">
 
-      <li
-        *ngFor="let resultUserSearch of resultsUserSearch | async"
-        [value]="resultUserSearch">
-
-        {{resultUserSearch}}
+        {{resultGameSearch}}
       </li>
-
     </ul>
-
   </form>
 </div>

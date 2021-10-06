@@ -1,10 +1,10 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from "@angular/forms";
 
 // Components
 import { SearchItemComponent } from './search-item.component';
-import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [

@@ -1,49 +1,39 @@
 // Angular
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
 
-// Services
-import { CustomSearchItemService } from "./services/custom-search-item.service";
-
 // RxJS
-import { debounceTime, map, takeUntil } from "rxjs/operators";
-import { Observable, Subject } from "rxjs";
+import { debounceTime, map } from "rxjs/operators";
+import { Observable } from "rxjs";
+
+// Services
+import { GamesService } from "./services/games.service";
 
 @Component({
   selector: 'app-search-item',
   templateUrl: './search-item.component.html',
   styleUrls: ['./search-item.component.scss'],
 })
-export class SearchItemComponent implements OnInit, OnDestroy {
-  searchUserInListGames: FormControl = new FormControl();
-  listOfGames = this.customSearchItemService.listOfGames;
-  resultsUserSearch: Observable<string[]>;
+export class SearchItemComponent implements OnInit {
+  searchGames: FormControl = new FormControl();
+  gamesList = this.gameService.gamesList;
+  resultGamesSearch$: Observable<string[]>;
 
-  private unsubscribe$ = new Subject<void>();
-
-  constructor(private customSearchItemService: CustomSearchItemService) {}
+  constructor(private gameService: GamesService) {}
 
   ngOnInit(): void {
-    this.searchInList();
+    this.setResultGameSearch();
   }
 
-  ngOnDestroy() {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
-
-  private searchInList(): void {
-     this.resultsUserSearch = this.searchUserInListGames.valueChanges
+  private setResultGameSearch(): void {
+     this.resultGamesSearch$ = this.searchGames.valueChanges
       .pipe(
         debounceTime(100),
-        map(value => this._filter(value)),
-        takeUntil(this.unsubscribe$),
+        map(filterValue => this.filterGamesList(filterValue)),
       );
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.listOfGames.filter(option => option.toLowerCase().includes(filterValue));
+  private filterGamesList(filterValue: string): string[] {
+    return this.gamesList.filter(game => game.toLowerCase().includes(filterValue.toLowerCase()));
   }
 }
