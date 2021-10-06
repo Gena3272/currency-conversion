@@ -35,7 +35,7 @@ export class SearchItemComponent implements OnInit, OnDestroy {
   private searchInList(): void {
      this.resultsUserSearch = this.searchUserInListGames.valueChanges
       .pipe(
-        debounceTime(300),
+        debounceTime(100),
         map(value => this._filter(value)),
         takeUntil(this.unsubscribe$),
       );
