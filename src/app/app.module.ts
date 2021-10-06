@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 
 // Module
 import { HeaderModule } from "./header/header.module";
-import { CustomerActionsDataModule } from "./customer-actions-data/ccustomer-actions-data.module";
+import { CustomerActionsDataModule } from "./customer-actions-data/customer-actions-data.module";
 import { RxJsModule } from "./rx-js/rx-js.module";
+import { SearchItemModule } from "./search-item/search-item.module";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RxJsModule } from "./rx-js/rx-js.module";
     FormsModule,
     CustomerActionsDataModule,
     RxJsModule,
+    SearchItemModule,
   ],
   bootstrap: [AppComponent],
 })
