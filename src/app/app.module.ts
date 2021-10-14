@@ -18,6 +18,7 @@ import { RxJsModule } from "./components/rx-js/rx-js.module";
 import { PostsModule } from "./components/posts/posts.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { PostModule } from "./components/post/post.module";
+import { SearchItemModule } from "./components/search-item/search-item.module";
 
 
 @NgModule({
