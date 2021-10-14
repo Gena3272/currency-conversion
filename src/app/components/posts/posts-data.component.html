@@ -1,0 +1,10 @@
+<div class="container">
+
+  <mat-card
+    class="cards"
+    *ngFor="let postData of postsData$ | async">
+
+      <span [routerLink]="['/posts', postData.id]">{{ postData.title }}</span>
+  </mat-card>
+
+</div>
