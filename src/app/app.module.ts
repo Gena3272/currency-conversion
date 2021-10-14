@@ -38,6 +38,7 @@ import { PostModule } from "./components/post/post.module";
     PostModule,
     MatButtonModule,
     MatIconModule,
+    SearchItemModule,
   ],
   bootstrap: [AppComponent],
 })
