@@ -6,12 +6,12 @@ import { MatCardModule } from "@angular/material/card";
 import { MatListModule } from "@angular/material/list";
 
 // Components
-import { PostsDataComponent } from "./posts-data.component";
+import { PostsComponent } from "./posts.component";
 
 
 @NgModule({
   declarations: [
-    PostsDataComponent,
+    PostsComponent,
   ],
   imports: [
     CommonModule,
@@ -20,7 +20,7 @@ import { PostsDataComponent } from "./posts-data.component";
     MatListModule,
   ],
   exports: [
-    PostsDataComponent,
+    PostsComponent,
   ],
 })
-export class PostsDataModule {}
+export class PostsModule {}

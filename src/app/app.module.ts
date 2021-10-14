@@ -15,9 +15,9 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from "./components/header/header.module";
 import { CustomerActionsDataModule } from "./components/customer-actions-data/ccustomer-actions-data.module";
 import { RxJsModule } from "./components/rx-js/rx-js.module";
-import { PostsDataModule } from "./components/posts/posts-data.module";
+import { PostsModule } from "./components/posts/posts.module";
 import { AppRoutingModule } from "./app-routing.module";
-import { PostDataModule } from "./components/post/post-data.module";
+import { PostModule } from "./components/post/post.module";
 
 
 @NgModule({
@@ -34,8 +34,8 @@ import { PostDataModule } from "./components/post/post-data.module";
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    PostsDataModule,
-    PostDataModule,
+    PostsModule,
+    PostModule,
     MatButtonModule,
     MatIconModule,
   ],

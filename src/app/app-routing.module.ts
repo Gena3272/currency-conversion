@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Components
-import { PostsDataComponent } from "./components/posts/posts-data.component";
-import { PostDataComponent } from "./components/post/post-data.component";
+import { PostsComponent } from "./components/posts/posts.component";
+import { PostComponent } from "./components/post/post.component";
 
 const routes: Routes = [
-  {path: 'posts', component: PostsDataComponent},
-  {path: 'posts/:id', component: PostDataComponent},
+  {path: 'posts', component: PostsComponent},
+  {path: 'posts/:id', component: PostComponent},
 ];
 
 @NgModule({

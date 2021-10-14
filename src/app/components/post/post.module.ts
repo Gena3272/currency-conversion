@@ -5,14 +5,14 @@ import { RouterModule } from "@angular/router";
 import { MatButtonModule } from "@angular/material/button";
 
 // Components
-import { PostDataComponent } from "./post-data.component";
+import { PostComponent } from "./post.component";
 
 @NgModule({
   declarations: [
-    PostDataComponent,
+    PostComponent,
   ],
   exports: [
-    PostDataComponent,
+    PostComponent,
   ],
   imports: [
     CommonModule,
@@ -20,4 +20,4 @@ import { PostDataComponent } from "./post-data.component";
     MatButtonModule,
   ],
 })
-export class PostDataModule {}
+export class PostModule {}
