@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class HomeService {
-  accessInAbout: boolean;
+  accessInAbout = false;
 
   denyAccessInAbout(): boolean {
     this.accessInAbout = false;
