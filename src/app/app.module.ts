@@ -19,7 +19,7 @@ import { PostsModule } from "./components/posts/posts.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { PostModule } from "./components/post/post.module";
 import { SearchItemModule } from "./components/search-item/search-item.module";
-
+import { HomeModule } from "./components/home/home.module";
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import { SearchItemModule } from "./components/search-item/search-item.module";
     MatButtonModule,
     MatIconModule,
     SearchItemModule,
+    HomeModule,
   ],
   bootstrap: [AppComponent],
 })
