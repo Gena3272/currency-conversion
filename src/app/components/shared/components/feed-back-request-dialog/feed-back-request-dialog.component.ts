@@ -13,7 +13,7 @@ export class FeedBackRequestDialogComponent {
   constructor(private feedBackRequestService: FeedBackRequestService) {}
 
   onClearEmailForm(): void {
-    this.feedBackRequestService.clearEmailForm$.next();
+    this.feedBackRequestService.clearEmail$.next();
   }
 
   onSaveEmailForm(): void {

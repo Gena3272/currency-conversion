@@ -22,7 +22,7 @@ export class FeedBackRequestComponent implements OnInit, OnDestroy {
   constructor(private feedBackRequestService: FeedBackRequestService) {}
 
   ngOnInit(): void {
-    this.emailForm = new FormControl(this.feedBackRequestService.saveEmail$.value);
+    this.emailForm = new FormControl(this.feedBackRequestService.email$.value);
 
     this.onEmailChangeSubscriber();
     this.onClearEmailFormSubscriber();
@@ -38,7 +38,7 @@ export class FeedBackRequestComponent implements OnInit, OnDestroy {
   }
 
   private onClearEmailFormSubscriber(): void {
-    this.feedBackRequestService.clearEmailForm$.pipe(
+    this.feedBackRequestService.clearEmail$.pipe(
       tap(() => this.emailForm.setValue('')),
       takeUntil(this.unsubscribe$),
     )
@@ -50,7 +50,7 @@ export class FeedBackRequestComponent implements OnInit, OnDestroy {
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
-        tap(email => this.feedBackRequestService.saveEmail$.next(email)),
+        tap(email => this.feedBackRequestService.email$.next(email)),
         tap(() => this.feedBackRequestService.isSavedEmail = false),
         takeUntil(this.unsubscribe$),
       )
