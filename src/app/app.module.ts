@@ -20,7 +20,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { PostModule } from "./components/post/post.module";
 import { SearchItemModule } from "./components/search-item/search-item.module";
 import { HomeModule } from "./components/home/home.module";
-import { SaveUserModule } from "./components/save-user/save-user.module";
+import { FeedBackRequestModule } from "./components/forms/feed-back-request.module";
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { SaveUserModule } from "./components/save-user/save-user.module";
     MatIconModule,
     SearchItemModule,
     HomeModule,
-    SaveUserModule,
+    FeedBackRequestModule,
   ],
   bootstrap: [AppComponent],
 })

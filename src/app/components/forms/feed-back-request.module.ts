@@ -10,23 +10,23 @@ import { MatButtonModule } from "@angular/material/button";
 
 // Modules
 import { SharedModule } from "../shared/shared.module";
-import { SaveUserRoutingModule } from "./save-user-routing.module";
+import { FeedBackRequestRoutingModule } from "./feed-back-request-routing.module";
 
 // Components
-import { CreateFormComponent } from './components/create-form/create-form.component';
-import { SaveDialogComponent } from "../shared/components/save-dialog/save-dialog.component";
+import { FeedBackRequestComponent } from './components/feed-back-request/feed-back-request.component';
+import { FeedBackRequestDialogComponent } from "../shared/components/feed-back-request-dialog/feed-back-request-dialog.component";
 
 @NgModule({
   declarations: [
-    CreateFormComponent,
-    SaveDialogComponent,
+    FeedBackRequestComponent,
+    FeedBackRequestDialogComponent,
   ],
   entryComponents: [
-    SaveDialogComponent,
+    FeedBackRequestDialogComponent,
   ],
   imports: [
     CommonModule,
-    SaveUserRoutingModule,
+    FeedBackRequestRoutingModule,
     MatInputModule,
     MatButtonModule,
     RouterModule,
@@ -34,8 +34,8 @@ import { SaveDialogComponent } from "../shared/components/save-dialog/save-dialo
     SharedModule,
   ],
   exports: [
-    SaveUserRoutingModule,
-    CreateFormComponent,
+    FeedBackRequestRoutingModule,
+    FeedBackRequestComponent,
   ],
 })
-export class SaveUserModule {}
+export class FeedBackRequestModule {}

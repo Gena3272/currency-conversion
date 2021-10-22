@@ -9,17 +9,17 @@ import { Observable } from 'rxjs';
 import { MatDialog } from "@angular/material/dialog";
 
 // Services
-import { StoreChangeFormService } from "../services/store-change-form.service";
+import { FeedBackRequestService } from "../services/feed-back-request.service";
 
 // Components
-import { SaveDialogComponent } from "../../shared/components/save-dialog/save-dialog.component";
+import { FeedBackRequestDialogComponent } from "../../shared/components/feed-back-request-dialog/feed-back-request-dialog.component";
 
 @Injectable({
   providedIn: 'root',
 })
-export class SaveFormGuard implements CanDeactivate<unknown> {
+export class FeedBackRequestGuard implements CanDeactivate<unknown> {
   constructor(
-    private storeChangeFormService: StoreChangeFormService,
+    private feedBackRequestService: FeedBackRequestService,
     private dialog: MatDialog,
   ) {}
   canDeactivate(
@@ -27,10 +27,10 @@ export class SaveFormGuard implements CanDeactivate<unknown> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(!this.storeChangeFormService.isSaved) {
-      this.dialog.open(SaveDialogComponent);
+    if(!this.feedBackRequestService.isSavedEmail) {
+      this.dialog.open(FeedBackRequestDialogComponent);
     }
 
-    return this.storeChangeFormService.isSaved;
+    return this.feedBackRequestService.isSavedEmail;
   }
 }
