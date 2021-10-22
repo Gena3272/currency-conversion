@@ -20,6 +20,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { PostModule } from "./components/post/post.module";
 import { SearchItemModule } from "./components/search-item/search-item.module";
 import { HomeModule } from "./components/home/home.module";
+import { SaveUserModule } from "./components/save-user/save-user.module";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { HomeModule } from "./components/home/home.module";
     MatIconModule,
     SearchItemModule,
     HomeModule,
+    SaveUserModule
   ],
   bootstrap: [AppComponent],
 })

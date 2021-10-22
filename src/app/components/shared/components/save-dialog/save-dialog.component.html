@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>You can save or clear value</h1>
+<div mat-dialog-content>You can exit and save the values you entered or clear the share</div>
+
+<div mat-dialog-actions>
+  <button
+    tabindex="-1"
+    mat-button mat-dialog-close
+    routerLink="/home"
+    (click)="onSaveForm()">
+      Save
+  </button>
+  <button
+    tabindex="-1"
+    mat-button mat-dialog-close
+    (click)="onClearForm()">
+
+      Clear
+  </button>
+  <button
+    tabindex="-1"
+    mat-button
+    mat-dialog-close>
+      Close
+  </button>
+</div>
