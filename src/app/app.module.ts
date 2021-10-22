@@ -42,7 +42,7 @@ import { SaveUserModule } from "./components/save-user/save-user.module";
     MatIconModule,
     SearchItemModule,
     HomeModule,
-    SaveUserModule
+    SaveUserModule,
   ],
   bootstrap: [AppComponent],
 })

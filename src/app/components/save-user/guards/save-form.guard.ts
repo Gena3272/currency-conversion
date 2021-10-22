@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { MatDialog } from "@angular/material/dialog";
 
 // Services
-import { CreateFormService } from "../services/create-form.service";
+import { StoreChangeFormService } from "../services/store-change-form.service";
 
 // Components
 import { SaveDialogComponent } from "../../shared/components/save-dialog/save-dialog.component";
@@ -17,22 +17,20 @@ import { SaveDialogComponent } from "../../shared/components/save-dialog/save-di
 @Injectable({
   providedIn: 'root',
 })
-export class CreateFormGuard implements CanDeactivate<unknown> {
+export class SaveFormGuard implements CanDeactivate<unknown> {
   constructor(
-    private createFormService: CreateFormService,
+    private storeChangeFormService: StoreChangeFormService,
     private dialog: MatDialog,
   ) {}
-
   canDeactivate(
     component: unknown,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-    if(!this.createFormService.checkSavedForm) {
+    if(!this.storeChangeFormService.isSaved) {
       this.dialog.open(SaveDialogComponent);
     }
 
-    return this.createFormService.checkSavedForm;
+    return this.storeChangeFormService.isSaved;
   }
 }

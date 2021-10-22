@@ -1,39 +1,46 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
 
 // RxJs
-import { debounceTime, distinctUntilChanged, filter, tap } from "rxjs/operators";
+import { debounceTime, distinctUntilChanged, takeUntil, tap } from "rxjs/operators";
 
 // Services
-import { CreateFormService } from "../../services/create-form.service";
+import { StoreChangeFormService } from "../../services/store-change-form.service";
+import { Subject } from "rxjs";
 
 @Component({
   selector: 'app-create-form',
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss'],
 })
-export class CreateFormComponent implements OnInit {
+export class CreateFormComponent implements OnInit, OnDestroy {
   userForm: FormControl;
 
-  constructor(private createFormService: CreateFormService) {}
+  private unsubscribe$ = new Subject<void>();
+
+  constructor(private storeChangeFormService: StoreChangeFormService) {}
 
   ngOnInit(): void {
-    this.userForm = new FormControl(this.createFormService.isSaveValueInForm$.value);
+    this.userForm = new FormControl(this.storeChangeFormService.saveDataForm$.value);
 
     this.onUserValueChangeSubscriber();
-    this.onClearValueForm();
+    this.onClearValueFormSubscriber();
   }
 
-  saveDataInForm(): void {
-    this.createFormService.checkSavedForm = true;
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
-  private onClearValueForm(): void {
-    this.createFormService.isClose$.pipe(
-      filter((v) => v),
+  onSaveValueForm(): void {
+    this.storeChangeFormService.isSaved = true;
+  }
+
+  private onClearValueFormSubscriber(): void {
+    this.storeChangeFormService.clearForm$.pipe(
       tap(() => this.userForm.setValue('')),
-      tap(() => this.createFormService.isClose$.next(false)),
+      takeUntil(this.unsubscribe$),
     )
       .subscribe();
   }
@@ -43,8 +50,9 @@ export class CreateFormComponent implements OnInit {
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
-        tap(v => this.createFormService.isSaveValueInForm$.next(v)),
-        tap(() => this.createFormService.checkSavedForm = false),
+        tap(userValue => this.storeChangeFormService.saveDataForm$.next(userValue)),
+        tap(() => this.storeChangeFormService.isSaved = false),
+        takeUntil(this.unsubscribe$),
       )
       .subscribe();
   }

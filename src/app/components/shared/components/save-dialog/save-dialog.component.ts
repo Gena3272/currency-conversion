@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 // Services
-import { CreateFormService } from "../../../save-user/services/create-form.service";
+import { StoreChangeFormService } from "../../../save-user/services/store-change-form.service";
 
 @Component({
   selector: 'app-save-dialog',
@@ -10,13 +10,13 @@ import { CreateFormService } from "../../../save-user/services/create-form.servi
   styleUrls: ['./save-dialog.component.scss'],
 })
 export class  SaveDialogComponent {
-  constructor(private createFormService: CreateFormService) {}
+  constructor(private storeChangeFormService: StoreChangeFormService) {}
 
   onClearForm(): void {
-    this.createFormService.isClose$.next(true);
+    this.storeChangeFormService.clearForm$.next();
   }
 
   onSaveForm(): void {
-    this.createFormService.checkSavedForm = true;
+    this.storeChangeFormService.isSaved = true;
   }
 }
