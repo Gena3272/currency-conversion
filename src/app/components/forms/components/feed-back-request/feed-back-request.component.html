@@ -1,0 +1,30 @@
+<div class="container">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Input</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="emailForm">
+    </mat-form-field>
+
+    <div>
+      <button
+        class="email-form-btn"
+        mat-raised-button
+        (click)="onSaveEmail()">
+
+          Save
+      </button>
+
+      <button
+        class="email-form-btn"
+        mat-raised-button
+        routerLink="/">
+
+          Back
+      </button>
+    </div>
+
+  </div>
+</div>
