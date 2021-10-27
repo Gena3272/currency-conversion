@@ -1,0 +1,15 @@
+div {
+  margin-top: 20px;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin-top: 10px;
+    width: 200px;
+  }
+}
+
+.container {
+  display: flex;
+}

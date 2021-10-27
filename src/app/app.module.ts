@@ -21,6 +21,7 @@ import { PostModule } from "./components/post/post.module";
 import { SearchItemModule } from "./components/search-item/search-item.module";
 import { HomeModule } from "./components/home/home.module";
 import { FeedBackRequestModule } from "./components/forms/feed-back-request.module";
+import { DashboardModule } from "./components/dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FeedBackRequestModule } from "./components/forms/feed-back-request.modu
     SearchItemModule,
     HomeModule,
     FeedBackRequestModule,
+    DashboardModule,
   ],
   bootstrap: [AppComponent],
 })

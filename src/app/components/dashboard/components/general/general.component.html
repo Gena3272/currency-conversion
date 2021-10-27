@@ -1,0 +1,42 @@
+<div class="container">
+  <div>
+    <button
+      (click)="addAuthorizationItem(ADMIN)">
+
+        Allow Access Admin Penal
+  </button>
+    <button
+      (click)="removeAuthorizationItem(ADMIN)">
+
+        Deny Access Admin Penal
+    </button>
+  </div>
+
+  <div>
+    <button
+      (click)="addAuthorizationItem(CLIENT)">
+
+        Allow Access Client Penal
+    </button>
+    <button
+      (click)="removeAuthorizationItem(CLIENT)">
+
+        Deny Access Client Penal
+    </button>
+  </div>
+
+  <div>
+    <button
+      [routerLink]="ADMIN">
+
+        Admin panel
+    </button>
+    <button
+      [routerLink]="CLIENT">
+
+        Client panel
+    </button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
