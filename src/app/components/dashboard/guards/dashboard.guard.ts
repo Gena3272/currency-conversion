@@ -22,8 +22,7 @@ export class DashboardGuard implements CanActivateChild {
   constructor(
     private dashboardService: DashboardService,
     private dialog: MatDialog,
-  ) {
-  }
+  ) {}
 
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,

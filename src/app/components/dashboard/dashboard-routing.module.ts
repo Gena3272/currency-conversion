@@ -6,6 +6,9 @@ import { RouterModule, Routes } from "@angular/router";
 // Guards
 import { DashboardGuard } from "./guards/dashboard.guard";
 
+// Constants
+import { ADMIN, CLIENT } from "./constants/dashboard";
+
 // Components
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { GeneralComponent } from "./components/general/general.component";
@@ -17,8 +20,8 @@ const routes: Routes = [
   children: [
     {path: 'general', component: GeneralComponent, canActivateChild: [DashboardGuard],
       children: [
-        {path: 'admin', component: AdminComponent},
-        {path: 'client', component: ClientComponent},
+        {path: ADMIN, component: AdminComponent},
+        {path: CLIENT, component: ClientComponent},
       ]},
   ]},
 ];
