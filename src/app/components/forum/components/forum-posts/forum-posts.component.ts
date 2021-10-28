@@ -2,13 +2,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
+// RxJs
+import { map } from "rxjs/operators";
+import { Observable } from "rxjs";
+
 // Models
 import { ForumPost } from "../../Models/forum-post";
 
 // Services
 import { ForumService } from "../../services/forum.service";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
 
 @Component({
   selector: 'app-forum-posts',
@@ -16,7 +18,7 @@ import { map } from "rxjs/operators";
   styleUrls: ['./forum-posts.component.scss'],
 })
 export class ForumPostsComponent implements OnInit {
-  forumPosts$: Observable<ForumPost[]>
+  forumPosts$: Observable<ForumPost[]>;
 
   constructor(
     private forumService: ForumService,
