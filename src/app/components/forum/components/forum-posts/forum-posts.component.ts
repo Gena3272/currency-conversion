@@ -21,7 +21,7 @@ export class ForumPostsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.preLoadingForumPosts();
   }
 
