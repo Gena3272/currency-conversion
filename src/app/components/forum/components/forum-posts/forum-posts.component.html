@@ -1,4 +1,4 @@
-<ul *ngFor="let forumPost of forumPosts">
+<ul *ngFor="let forumPost of forumPosts$ | async">
   <li>
     <p> Post Title: {{ forumPost.title }}</p>
     <p> Post Body: {{ forumPost.body }}</p>

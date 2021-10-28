@@ -7,18 +7,18 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { tap } from "rxjs/operators";
 
 // Models
-import { forumPost } from "../Models/forum-post";
+import { ForumPost } from "../Models/forum-post";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ForumService {
-  forumPosts$ = new BehaviorSubject<forumPost[]>([]);
+  forumPosts$ = new BehaviorSubject<ForumPost[]>([]);
 
   constructor(private http$: HttpClient) {}
 
-  getForumPosts(): Observable<forumPost[]> {
-    return this.http$.get<forumPost[]>('https://jsonplaceholder.typicode.com/posts')
+  getForumPosts(): Observable<ForumPost[]> {
+    return this.http$.get<ForumPost[]>('https://jsonplaceholder.typicode.com/posts')
       .pipe(
         tap((forumPosts) => this.forumPosts$.next(forumPosts)),
       )

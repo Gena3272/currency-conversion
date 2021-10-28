@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 import { delay } from "rxjs/operators";
 
 // Models
-import { Post } from "../../posts/models/post";
+import { ForumPost } from "../Models/forum-post";
 
 // Services
 import { ForumService } from "./forum.service";
@@ -15,11 +15,11 @@ import { ForumService } from "./forum.service";
 @Injectable({
   providedIn: 'root',
 })
-export class ForumResolveService implements Resolve<Post[]> {
+export class ForumResolveService implements Resolve<ForumPost[]> {
 
   constructor(private forumService: ForumService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Post[]> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ForumPost[]> {
     return this.forumService.getForumPosts().pipe(
       delay(3000),
     );

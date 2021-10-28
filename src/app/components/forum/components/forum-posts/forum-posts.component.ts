@@ -3,10 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 // Models
-import { forumPost } from "../../Models/forum-post";
+import { ForumPost } from "../../Models/forum-post";
 
 // Services
 import { ForumService } from "../../services/forum.service";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: 'app-forum-posts',
@@ -14,7 +16,7 @@ import { ForumService } from "../../services/forum.service";
   styleUrls: ['./forum-posts.component.scss'],
 })
 export class ForumPostsComponent implements OnInit {
-  forumPosts: forumPost[];
+  forumPosts$: Observable<ForumPost[]>
 
   constructor(
     private forumService: ForumService,
@@ -26,8 +28,8 @@ export class ForumPostsComponent implements OnInit {
   }
 
   private preLoadingForumPosts(): void {
-    this.activatedRoute.data.subscribe((parameter) => {
-      this.forumPosts = parameter.forumPosts;
-    }).unsubscribe();
+    this.forumPosts$ =  this.activatedRoute.data.pipe(
+      map(parameter => parameter.forumPosts),
+    )
   }
 }
