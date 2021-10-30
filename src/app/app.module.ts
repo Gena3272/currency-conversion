@@ -21,6 +21,7 @@ import { HomeModule } from "./components/home/home.module";
 import { FeedBackRequestModule } from "./components/forms/feed-back-request.module";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
 import { SharedModule } from "./components/shared/shared.module";
+import { PostModule } from "./components/post/post.module";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SharedModule } from "./components/shared/shared.module";
     FeedBackRequestModule,
     DashboardModule,
     SharedModule,
+    PostModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -11,7 +11,6 @@ import { HomeComponent } from "./components/home/home.component";
 import { AboutComponent } from "./components/home/about/about.component";
 import { CustomPreloadingStrategy } from "./components/shared/components/preload-strategy/custom-preloading-strategy";
 
-
 const routes: Routes = [
   {path: 'posts', canLoad: [PastsGuard],
     loadChildren: () => import('../app/components/posts/posts.module').then(m => m.PostsModule),
