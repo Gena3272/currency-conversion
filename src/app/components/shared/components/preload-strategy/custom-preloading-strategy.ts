@@ -15,7 +15,7 @@ export class CustomPreloadingStrategy implements PreloadingStrategy {
       const delay = route.data['delay'];
 
       return timer(delay).pipe(
-        map( () => loadPage()));
+        map(() => loadPage()));
     }
 
     return of(null);
