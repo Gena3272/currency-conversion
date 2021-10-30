@@ -4,7 +4,7 @@ import { PreloadingStrategy, Route } from "@angular/router";
 
 // RxJs
 import { Observable, of, timer } from "rxjs";
-import { map } from "rxjs/operators";
+import { tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +14,7 @@ export class CustomPreloadingStrategy implements PreloadingStrategy {
     if (route.data['preload']) {
       const delay = route.data['delay'];
 
-      return timer(delay).pipe(
-        map(() => loadPage()));
+      return timer(delay).pipe(tap(() => loadPage()));
     }
 
     return of(null);
