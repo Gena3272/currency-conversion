@@ -15,13 +15,12 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from "./components/header/header.module";
 import { CustomerActionsDataModule } from "./components/customer-actions-data/ccustomer-actions-data.module";
 import { RxJsModule } from "./components/rx-js/rx-js.module";
-import { PostsModule } from "./components/posts/posts.module";
 import { AppRoutingModule } from "./app-routing.module";
-import { PostModule } from "./components/post/post.module";
 import { SearchItemModule } from "./components/search-item/search-item.module";
 import { HomeModule } from "./components/home/home.module";
 import { FeedBackRequestModule } from "./components/forms/feed-back-request.module";
 import { DashboardModule } from "./components/dashboard/dashboard.module";
+import { SharedModule } from "./components/shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -37,14 +36,13 @@ import { DashboardModule } from "./components/dashboard/dashboard.module";
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    PostsModule,
-    PostModule,
     MatButtonModule,
     MatIconModule,
     SearchItemModule,
     HomeModule,
     FeedBackRequestModule,
     DashboardModule,
+    SharedModule,
   ],
   bootstrap: [AppComponent],
 })
