@@ -1,0 +1,23 @@
+<div class="container">
+  <form [formGroup]="registrationForm">
+
+    <label>Login</label>
+    <input type="text" formControlName="login">
+
+    <label>Password</label>
+    <input type="password" formControlName="password">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email"
+             placeholder="Ex. pat@example.com">
+    </mat-form-field>
+
+    <button
+      type="submit"
+      [disabled]="registrationForm.invalid">
+
+        Submit
+    </button>
+  </form>
+</div>
