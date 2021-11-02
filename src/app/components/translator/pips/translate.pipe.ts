@@ -4,6 +4,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 // Services
 import { TranslatorService } from "../services/translator.service";
 
+// Constants
+import { DictionaryWord } from "../constants/dictionary";
+
 @Pipe({
   name: 'translate',
   pure: false,
@@ -13,10 +16,10 @@ export class TranslatePipe implements PipeTransform {
   constructor(private translatorService: TranslatorService) {}
 
   transform(word: string): string {
-    this.translatorService.dictionary.forEach((translation): void => {
-      if(this.translatorService.selectedLanguage === translation.language ) {
+    DictionaryWord.forEach((translateItem): void => {
+      if(this.translatorService.selectedLanguage === translateItem.language ) {
 
-        word = translation.value;
+        word = translateItem.value;
       }
     });
 
