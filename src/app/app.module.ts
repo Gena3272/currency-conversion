@@ -23,6 +23,7 @@ import { DashboardModule } from "./components/dashboard/dashboard.module";
 import { SharedModule } from "./components/shared/shared.module";
 import { PostModule } from "./components/post/post.module";
 import { ForumModule } from "./components/forum/forum.module";
+import { TranslatorModule } from "./components/translator/translator.module";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ForumModule } from "./components/forum/forum.module";
     SharedModule,
     PostModule,
     ForumModule,
+    TranslatorModule,
   ],
   bootstrap: [AppComponent],
 })
