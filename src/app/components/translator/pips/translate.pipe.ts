@@ -16,13 +16,8 @@ export class TranslatePipe implements PipeTransform {
   constructor(private translatorService: TranslatorService) {}
 
   transform(word: string): string {
-    DictionaryWord.forEach((translateItem): void => {
-      if(this.translatorService.selectedLanguage === translateItem.language ) {
+      const translatedWord = DictionaryWord.find((translateItem) => this.translatorService.selectedLanguage === translateItem.language);
 
-        word = translateItem.value;
-      }
-    });
-
-    return word;
-  }
+      return translatedWord.value;
+    }
 }
