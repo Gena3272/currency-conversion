@@ -24,7 +24,7 @@ import { SharedModule } from "./components/shared/shared.module";
 import { PostModule } from "./components/post/post.module";
 import { ForumModule } from "./components/forum/forum.module";
 import { RegistrationFormModule } from "./components/registration-form/registration-form.module";
-
+import { TranslatorModule } from "./components/translator/translator.module";
 
 @NgModule({
   declarations: [
@@ -50,6 +50,7 @@ import { RegistrationFormModule } from "./components/registration-form/registrat
     PostModule,
     ForumModule,
     RegistrationFormModule,
+    TranslatorModule,
   ],
   bootstrap: [AppComponent],
 })
