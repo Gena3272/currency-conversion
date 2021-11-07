@@ -26,7 +26,7 @@ export class RegistrationFormComponent implements OnInit {
     this.registrationFormService.isValidForm = this.registrationForm.valid;
   }
 
-  private setRegistrationForm() {
+  private setRegistrationForm(): void {
     this.registrationForm = new FormGroup({
 
       login: new FormControl('', [
