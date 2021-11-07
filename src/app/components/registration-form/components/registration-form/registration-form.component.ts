@@ -22,6 +22,10 @@ export class RegistrationFormComponent implements OnInit {
     this.setRegistrationForm();
   }
 
+  registrationAccount(): void {
+    this.registrationFormService.isValidForm = this.registrationForm.valid;
+  }
+
   private setRegistrationForm() {
     this.registrationForm = new FormGroup({
 
@@ -47,7 +51,5 @@ export class RegistrationFormComponent implements OnInit {
     });
   }
 
-  registrationAccount(): void {
-    this.registrationFormService.isValidForm = this.registrationForm.valid;
-  }
+
 }
