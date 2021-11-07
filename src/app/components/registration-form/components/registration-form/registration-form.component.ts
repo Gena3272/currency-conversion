@@ -1,5 +1,5 @@
 // Angular
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 // Constants
@@ -13,31 +13,39 @@ import { RegistrationFormService } from "../../services/registration-form.servic
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.scss'],
 })
-export class RegistrationFormComponent {
-  registrationForm: FormGroup = new FormGroup({
-
-    login: new FormControl('', [
-      Validators.required,
-      Validators.pattern(RegExInLogin),
-      Validators.minLength(5),
-      Validators.maxLength(16),
-    ]),
-
-    password: new FormControl('', [
-      Validators.required,
-      Validators.pattern(RegExInPassword),
-      Validators.minLength(8),
-      Validators.maxLength(16),
-    ]),
-
-    email: new FormControl('', [
-      Validators.required,
-      Validators.pattern(RegExInEmail),
-      Validators.email,
-    ]),
-  });
+export class RegistrationFormComponent implements OnInit {
+  registrationForm: FormGroup;
 
   constructor(private registrationFormService: RegistrationFormService) {}
+
+  ngOnInit(): void {
+    this.setRegistrationForm();
+  }
+
+  private setRegistrationForm() {
+    this.registrationForm = new FormGroup({
+
+      login: new FormControl('', [
+        Validators.required,
+        Validators.pattern(RegExInLogin),
+        Validators.minLength(5),
+        Validators.maxLength(16),
+      ]),
+
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(RegExInPassword),
+        Validators.minLength(8),
+        Validators.maxLength(16),
+      ]),
+
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern(RegExInEmail),
+        Validators.email,
+      ]),
+    });
+  }
 
   registrationAccount(): void {
     this.registrationFormService.isValidForm = this.registrationForm.valid;
