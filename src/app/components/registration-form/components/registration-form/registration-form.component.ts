@@ -28,7 +28,6 @@ export class RegistrationFormComponent implements OnInit {
 
   private setRegistrationForm(): void {
     this.registrationForm = new FormGroup({
-
       login: new FormControl('', [
         Validators.required,
         Validators.pattern(RegExInLogin),
