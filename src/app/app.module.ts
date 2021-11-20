@@ -25,7 +25,7 @@ import { PostModule } from "./components/post/post.module";
 import { ForumModule } from "./components/forum/forum.module";
 import { RegistrationFormModule } from "./components/registration-form/registration-form.module";
 import { TranslatorModule } from "./components/translator/translator.module";
-
+import { PostsModule } from "./components/posts-user/posts.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +51,7 @@ import { TranslatorModule } from "./components/translator/translator.module";
     ForumModule,
     RegistrationFormModule,
     TranslatorModule,
+    PostsModule,
   ],
   bootstrap: [AppComponent],
 })

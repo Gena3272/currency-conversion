@@ -11,6 +11,8 @@ import { HomeComponent } from "./components/home/home.component";
 import { AboutComponent } from "./components/home/about/about.component";
 import { CustomPreloadingStrategy } from "./components/shared/components/preload-strategy/custom-preloading-strategy";
 import { TranslatorComponent } from "./components/translator/components/translator/translator.component";
+import { PostsComponent } from "./components/posts-user/components/posts/posts.component";
+import { PostComponent } from "./components/posts-user/components/post/post.component";
 
 const routes: Routes = [
   {path: 'posts', canLoad: [PostsGuard],
@@ -19,6 +21,9 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent, canActivate: [AboutGuard]},
   {path: 'translator', component: TranslatorComponent},
+  {path: 'posts-user', component: PostsComponent},
+  {path: 'posts-user/:id', component: PostComponent},
+
 ];
 
 @NgModule({
