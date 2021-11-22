@@ -1,0 +1,13 @@
+<div
+  *ngIf="post$ | async as post"
+  class="container">
+
+  <h3>{{ post.body }}</h3>
+  <button
+    mat-raised-button
+    routerLink="/posts-user">
+
+      Black
+  </button>
+
+</div>

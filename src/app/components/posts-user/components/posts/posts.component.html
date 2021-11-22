@@ -1,0 +1,8 @@
+<ng-container *ngIf="postsList$ | async">
+  <mat-list *ngFor="let post of postsList$ | async">
+
+    <span [routerLink]="['/posts-user', post.id]">{{ post.title }}</span>
+    <mat-divider></mat-divider>
+
+  </mat-list>
+</ng-container>
