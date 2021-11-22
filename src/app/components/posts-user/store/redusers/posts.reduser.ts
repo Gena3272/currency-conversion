@@ -2,11 +2,8 @@
 import { createReducer, on } from "@ngrx/store";
 import { fetchPostsListSuccess } from "../actions/posts.action";
 
-export interface Post {
-  id: number;
-  title: string;
-  body: string;
-}
+// Constants
+import { Post } from "../../constants/constants";
 
 export interface PostsState {
   postsList: Post[];

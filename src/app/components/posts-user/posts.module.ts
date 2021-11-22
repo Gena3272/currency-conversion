@@ -9,9 +9,6 @@ import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 
 // Store
-import { StoreModule } from "@ngrx/store";
-import { appReducers } from "../store";
-import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { EffectsModule } from "@ngrx/effects";
 import { postsEffect } from "./store/effects/posts.effect";
 
@@ -26,13 +23,11 @@ import { PostComponent } from './components/post/post.component';
   ],
   imports: [
     CommonModule,
-    StoreModule.forRoot(appReducers),
-    StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([postsEffect]),
     MatCardModule,
     MatListModule,
     RouterModule,
     MatButtonModule,
+    EffectsModule.forRoot([postsEffect]),
   ],
 })
 export class PostsModule {}

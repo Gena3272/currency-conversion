@@ -1,7 +1,9 @@
 // Store
 import { createSelector } from "@ngrx/store";
 import { AppState } from "../../../store";
-import { Post } from "../redusers/posts.reduser";
+
+// Constants
+import { Post } from "../../constants/constants";
 
 export const selectPosts = (state: AppState) => state.posts;
 

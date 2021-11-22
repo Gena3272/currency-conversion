@@ -4,13 +4,15 @@ import { ActivatedRoute } from "@angular/router";
 
 // RxJs
 import { Observable, Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 // Store
 import { Store } from "@ngrx/store";
 import { AppState } from "../../../store";
-import { Post } from "../../store/redusers/posts.reduser";
 import { selectCurrentPostById } from "../../store/selectors/posts.selector";
-import { takeUntil } from "rxjs/operators";
+
+// Constants
+import { Post } from "../../constants/constants";
 
 @Component({
   selector: 'app-post',

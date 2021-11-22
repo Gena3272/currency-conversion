@@ -1,6 +1,8 @@
 // Store
 import { createAction, props } from "@ngrx/store";
-import { Post } from "../redusers/posts.reduser";
+
+// Constants
+import { Post } from "../../constants/constants";
 
 export const fetchPostsList = createAction(
   '[Posts] Fetch posts list',

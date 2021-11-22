@@ -5,8 +5,8 @@ import { HttpClient } from "@angular/common/http";
 // RxJs
 import { Observable } from "rxjs";
 
-// Store
-import { Post } from "../store/redusers/posts.reduser";
+// Constants
+import { Post } from "../constants/constants";
 
 @Injectable({
   providedIn: 'root',

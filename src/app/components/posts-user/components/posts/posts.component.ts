@@ -9,7 +9,9 @@ import {  Store } from "@ngrx/store";
 import { fetchPostsList } from "../../store/actions/posts.action";
 import { selectAllPosts } from "../../store/selectors/posts.selector";
 import { AppState } from "../../../store";
-import { Post } from "../../store/redusers/posts.reduser";
+
+// Constants
+import { Post } from "../../constants/constants";
 
 @Component({
   selector: 'app-posts',
