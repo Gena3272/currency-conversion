@@ -27,8 +27,8 @@ export class postsEffect {
     }
   )
 
-  constructor(
-  private actions$: Actions,
-  private postsService: PostsService,
+  constructor (
+    private actions$: Actions,
+    private postsService: PostsService,
   ) {}
 }

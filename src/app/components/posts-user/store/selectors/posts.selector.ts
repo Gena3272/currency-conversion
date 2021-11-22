@@ -14,7 +14,5 @@ export const selectAllPosts = createSelector(
 
 export const selectCurrentPostById = (id: number) => createSelector(
   selectAllPosts,
-  (posts): Post => {
-    return posts ? posts.find((post) => post.id === id) : null;
-  },
+  (posts): Post => posts ? posts.find((post) => post.id === id) : null,
 );
